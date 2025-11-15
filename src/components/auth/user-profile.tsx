@@ -1,6 +1,6 @@
 "use client";
 
-import { useSession, signOut } from "@/lib/auth-client";
+import { authClient, signOut } from "@/lib/auth-client";
 import { SignInButton } from "./sign-in-button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import {
@@ -16,11 +16,16 @@ import { useRouter } from "next/navigation";
 import { User, LogOut } from "lucide-react";
 
 export function UserProfile() {
-  const { data: session, isPending } = useSession();
+  // Use authClient.useSession() directly to avoid hydration issues
+  const { data: session, isPending } = authClient.useSession();
   const router = useRouter();
 
   if (isPending) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex items-center justify-center">
+        <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
+      </div>
+    );
   }
 
   if (!session) {
@@ -74,7 +79,7 @@ export function UserProfile() {
           </Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={handleSignOut} variant="destructive">
+        <DropdownMenuItem onClick={handleSignOut} className="text-destructive focus:text-destructive">
           <LogOut className="mr-2 h-4 w-4" />
           Log out
         </DropdownMenuItem>

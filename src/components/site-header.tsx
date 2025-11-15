@@ -1,13 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useSession } from "@/lib/auth-client";
+import { authClient } from "@/lib/auth-client";
 import { UserProfile } from "@/components/auth/user-profile";
 import { ModeToggle } from "./ui/mode-toggle";
-import { Button } from "./ui/button";
+import { SignInButton } from "./auth/sign-in-button";
 
 export function SiteHeader() {
-  const { data: session } = useSession();
+  // Use authClient.useSession() instead of destructured useSession
+  const { data: session } = authClient.useSession();
 
   return (
     <header className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -94,6 +95,14 @@ export function SiteHeader() {
                 >
                   Visual
                 </Link>
+                {session.user.platformRole === "admin" && (
+                  <Link
+                    href="/admin"
+                    className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    Admin
+                  </Link>
+                )}
               </>
             )}
             <Link
@@ -113,11 +122,7 @@ export function SiteHeader() {
 
         {/* Right Side Actions */}
         <div className="flex items-center gap-4">
-          {!session && (
-            <Button asChild variant="default" size="sm">
-              <Link href="/api/auth/signin">Sign In</Link>
-            </Button>
-          )}
+          {!session && <SignInButton />}
           <UserProfile />
           <ModeToggle />
         </div>

@@ -4,10 +4,10 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { BeforeAfterSlider } from "@/components/ui/before-after-slider";
-import { useSession } from "@/lib/auth-client";
+import { authClient } from "@/lib/auth-client";
 
 export default function Home() {
-  const { data: session } = useSession();
+  const { data: session } = authClient.useSession();
 
   return (
     <main className="flex-1">

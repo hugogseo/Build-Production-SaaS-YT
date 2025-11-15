@@ -28,6 +28,42 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                // Remove browser extension attributes before React hydration
+                const observer = new MutationObserver(function(mutations) {
+                  mutations.forEach(function(mutation) {
+                    if (mutation.type === 'attributes' && mutation.target.nodeType === 1) {
+                      const elem = mutation.target;
+                      if (elem.hasAttribute('bis_skin_checked')) {
+                        elem.removeAttribute('bis_skin_checked');
+                      }
+                    }
+                  });
+                });
+
+                if (typeof window !== 'undefined') {
+                  // Clean existing elements
+                  document.addEventListener('DOMContentLoaded', function() {
+                    const elementsWithBis = document.querySelectorAll('[bis_skin_checked]');
+                    elementsWithBis.forEach(el => el.removeAttribute('bis_skin_checked'));
+                  });
+
+                  // Observe future changes
+                  observer.observe(document.documentElement, {
+                    attributes: true,
+                    subtree: true,
+                    attributeFilter: ['bis_skin_checked']
+                  });
+                }
+              })();
+            `,
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         suppressHydrationWarning

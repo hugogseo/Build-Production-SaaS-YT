@@ -21,7 +21,11 @@
       "Bash(npm run db:generate:*)",
       "Bash(npm run db:migrate:*)",
       "Bash(pnpm add:*)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "WebSearch",
+      "WebFetch(domain:www.better-auth.com)",
+      "Bash(npx tsx:*)",
+      "Bash(node:*)"
     ],
     "additionalDirectories": [
       "C:\\c\\Projects\\nextjs-better-auth-postgresql-starter-kit"

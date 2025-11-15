@@ -3,7 +3,7 @@
 import { useChat } from "@ai-sdk/react";
 import { Button } from "@/components/ui/button";
 import { UserProfile } from "@/components/auth/user-profile";
-import { useSession } from "@/lib/auth-client";
+import { authClient } from "@/lib/auth-client";
 import { useState, type ReactNode } from "react";
 import ReactMarkdown from "react-markdown";
 import type { Components } from "react-markdown";
@@ -127,7 +127,7 @@ function renderMessageContent(message: MaybePartsMessage): ReactNode {
 }
 
 export default function ChatPage() {
-  const { data: session, isPending } = useSession();
+  const { data: session, isPending } = authClient.useSession();
   const { messages, sendMessage, status } = useChat();
   const [input, setInput] = useState("");
 
