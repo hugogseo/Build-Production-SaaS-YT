@@ -179,6 +179,83 @@ export default function ProfilePage() {
           </CardContent>
         </Card>
 
+        {/* Generation Settings */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Generation Settings</CardTitle>
+            <CardDescription>
+              Customize your default plushie generation preferences
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-6">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between p-4 border rounded-lg">
+                <div className="space-y-1">
+                  <p className="font-medium">Default Plushie Style</p>
+                  <p className="text-sm text-muted-foreground">
+                    Your preferred style for new generations
+                  </p>
+                </div>
+                <Badge variant="outline">Cute & Cuddly</Badge>
+              </div>
+
+              <div className="flex items-center justify-between p-4 border rounded-lg">
+                <div className="space-y-1">
+                  <p className="font-medium">Auto-Save to Gallery</p>
+                  <p className="text-sm text-muted-foreground">
+                    Automatically save generated plushies
+                  </p>
+                </div>
+                <Badge variant="default" className="bg-green-600">Enabled</Badge>
+              </div>
+
+              <div className="flex items-center justify-between p-4 border rounded-lg">
+                <div className="space-y-1">
+                  <p className="font-medium">Image Quality</p>
+                  <p className="text-sm text-muted-foreground">
+                    Output resolution for generated plushies
+                  </p>
+                </div>
+                <Badge variant="outline">High (1024x1024)</Badge>
+              </div>
+
+              <div className="flex items-center justify-between p-4 border rounded-lg">
+                <div className="space-y-1">
+                  <p className="font-medium">Generation History</p>
+                  <p className="text-sm text-muted-foreground">
+                    Keep history of all generation attempts
+                  </p>
+                </div>
+                <Badge variant="default" className="bg-green-600">Enabled</Badge>
+              </div>
+            </div>
+
+            <Separator />
+
+            <div className="space-y-2">
+              <h3 className="text-sm font-medium">Generation Statistics</h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div className="text-center p-3 border rounded-lg">
+                  <p className="text-2xl font-bold text-primary">6</p>
+                  <p className="text-xs text-muted-foreground">Total Generated</p>
+                </div>
+                <div className="text-center p-3 border rounded-lg">
+                  <p className="text-2xl font-bold text-primary">3</p>
+                  <p className="text-xs text-muted-foreground">This Month</p>
+                </div>
+                <div className="text-center p-3 border rounded-lg">
+                  <p className="text-2xl font-bold text-primary">3</p>
+                  <p className="text-xs text-muted-foreground">Favorites</p>
+                </div>
+                <div className="text-center p-3 border rounded-lg">
+                  <p className="text-2xl font-bold text-primary">Cute</p>
+                  <p className="text-xs text-muted-foreground">Most Used Style</p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
         {/* Quick Actions */}
         <Card>
           <CardHeader>
