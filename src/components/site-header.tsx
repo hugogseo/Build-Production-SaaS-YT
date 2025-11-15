@@ -60,6 +60,40 @@ export function SiteHeader() {
                 >
                   Generate
                 </Link>
+                <Link
+                  href="/chat"
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Chat
+                </Link>
+                <Link
+                  href="#"
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  onClick={(e) => e.preventDefault()}
+                >
+                  Chatbot
+                </Link>
+                <Link
+                  href="#"
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  onClick={(e) => e.preventDefault()}
+                >
+                  Agent
+                </Link>
+                <Link
+                  href="#"
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  onClick={(e) => e.preventDefault()}
+                >
+                  API
+                </Link>
+                <Link
+                  href="#"
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  onClick={(e) => e.preventDefault()}
+                >
+                  Visual
+                </Link>
               </>
             )}
             <Link
@@ -67,6 +101,12 @@ export function SiteHeader() {
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               Docs
+            </Link>
+            <Link
+              href="/pricing"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Pricing
             </Link>
           </nav>
         </div>

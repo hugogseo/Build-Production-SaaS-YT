@@ -12,6 +12,7 @@ import { MasonryGridColumns, MasonryItem } from "@/components/ui/masonry-grid";
 import { FilterBar } from "@/components/ui/filter-bar";
 import { EmptyGallery } from "@/components/ui/empty-state";
 import { ImageViewer } from "@/components/ui/image-viewer";
+import { CreditsSection } from "@/components/credits-section";
 
 // Mock plushie data for UI demonstration
 const MOCK_PLUSHIES: PlushieData[] = [
@@ -141,6 +142,15 @@ export default function GalleryPage() {
         </div>
       </div>
 
+      {/* Credits Section */}
+      <CreditsSection
+        availableCredits={47}
+        totalGenerations={156}
+        memberSince="Aug 2024"
+      />
+
+      <div className="h-8" />
+
       {/* Stats Cards */}
       <div className="grid gap-4 md:grid-cols-3 mb-8">
         <Card>
@@ -247,7 +257,7 @@ export default function GalleryPage() {
           }}
         />
       ) : (
-        <MasonryGridColumns columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}>
+        <MasonryGridColumns columns={{ sm: 2, md: 3, lg: 4, xl: 5 }}>
           {plushies.map((plushie) => (
             <MasonryItem key={plushie.id}>
               <PlushieCard

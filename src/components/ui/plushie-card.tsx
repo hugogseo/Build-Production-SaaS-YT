@@ -76,7 +76,7 @@ export function PlushieCard({
       onClick={handleCardClick}
     >
       {/* Image Container */}
-      <div className="relative aspect-square overflow-hidden bg-muted">
+      <div className="relative aspect-square overflow-hidden bg-muted max-h-64">
         {!imageLoaded && (
           <div className="absolute inset-0 animate-pulse bg-muted" />
         )}
